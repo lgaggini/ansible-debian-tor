@@ -7,4 +7,4 @@ certbot_certs:
     - nibiru.lgaggini.net
 certbot_force_regenerate: false
 certbot_create_standalone_stop_services:
-    - theonionbox
+  - nginx
