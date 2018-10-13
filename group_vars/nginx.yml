@@ -1,0 +1,25 @@
+---
+nginx_worker_processes: 2
+nginx_worker_connections: "1024"
+nginx_multi_accept: "off"
+nginx_server_tokens: "off"
+nginx_remove_default_vhost: false
+
+nginx_vhosts:
+  - listen: 443 ssl
+    server_name: nibiru.lgaggini.net
+    access_log: /var/log/nginx/nibiru_access.log
+    error_log: /var/log/nginx/nibiru_error.log
+    filename: nibiru_443.conf
+    extra_parameters: |
+      ssl_certificate /etc/letsencrypt/live/nibiru.lgaggini.net/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/nibiru.lgaggini.net/privkey.pem;
+
+      location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_buffering on;
+      }
+  - listen: 80
+    server_name: nibiru.lgaggini.net
+    return: "301 https://$host$request_uri"
+    filename: nibiru_80.conf

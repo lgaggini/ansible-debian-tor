@@ -1,0 +1,13 @@
+---
+- name: user | set root password
+  user: name=root password={{ ROOT_PASSWORD | password_hash('sha512') }} 
+
+- name: user | create admin user in the sudo group
+  user: name={{ ADMIN_USERNAME }} password={{ ADMIN_PASSWORD | password_hash('sha512') }} shell=/bin/bash groups=users,sudo
+
+- name: user | allow sudo group to have passwordless sudo
+  lineinfile: dest=/etc/sudoers regexp="^%sudo" line="%sudo ALL=(ALL) NOPASSWD{{ ":" }} ALL" state=present
+
+- name: user | add authorized_keys for the admin
+  authorized_key: user={{ ADMIN_USERNAME }} key={{ item }} state=present
+  with_items: "{{ ADMIN_PUBLIC_KEYS }}"

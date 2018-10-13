@@ -1,0 +1,6 @@
+---
+- name: packages | upgrade packages to the latest version
+  apt: name=* state=latest update_cache=yes
+
+- name: packages | install required packages
+  apt: name={{ DEFAULT_PACKAGES }} state=latest 

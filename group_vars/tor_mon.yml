@@ -1,0 +1,8 @@
+---
+tor_mon_packages:
+    - nyx
+    - theonionbox
+tor_mon_home: /etc/theonionbox
+theonionbox_listen: 127.0.0.1
+theonionbox_port: 8080
+theonionbox_socket: /var/run/tor-instances/37.247.49.139_9000/control

@@ -1,0 +1,12 @@
+---
+- name: mail | configure myhostname for postfix
+  lineinfile: dest=/etc/postfix/main.cf regexp="^myhostname = " line="myhostname = {{ ansible_fqdn }}" insertafter="^#myhostname" state=present
+  notify: restart postfix
+
+- name: mail | configure mydomain for postfix
+  lineinfile: dest=/etc/postfix/main.cf regexp="^mydomain = " line="mydomain = {{ ansible_fqdn.split('.', 1)[1] }}" insertafter="^#mydomain" state=present
+  notify: restart postfix
+
+- name: mail | setup root aliases
+  lineinfile: dest=/etc/aliases regexp="^root:" line="root{{ ":" }} {{ ROOT_ALIAS }}" insertafter="^#root" state=present
+  notify: newaliases

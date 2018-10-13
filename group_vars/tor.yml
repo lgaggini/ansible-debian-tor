@@ -1,0 +1,16 @@
+---
+tor_user: _tor
+tor_packages: tor
+tor_package_state: latest
+tor_offline_masterkey: no
+tor_ports:
+  - orport: 9000
+    dirport: 0
+tor_nickname: nibiru
+tor_ContactInfo: "Lorenzo Gaggini <lg AT lgaggini dot net>"
+tor_ExitRelay: False
+tor_RelayBandwidthRate_file: files/bandwidthrate.csv
+tor_RelayBandwidthBurst_file: files/bandwidthburst.csv
+tor_enableControlSocket: True
+tor_AccountingMax: 1.90 TBytes
+tor_AccountingStart: month 1 00:00

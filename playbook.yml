@@ -1,0 +1,23 @@
+---
+- name: bootstrap a debian server
+  hosts: all
+  become: yes
+  vars_files:
+    - group_vars/all.yml
+    - group_vars/vault.yml
+    - group_vars/certbot.yml
+    - group_vars/tor.yml
+    - group_vars/nginx.yml
+
+  roles:
+    - { role: user, tags: ['user'] }
+    - { role: ssh, tags: ['ssh'] }
+    - { role: packages, tags: ['packages'] }
+    - { role: motd, tags: ['motd'] }
+    - { role: fail2ban, tags: ['fail2ban'] }
+    - { role: mail, tags: ['mail'] }
+    - { role: unattended-upgrades, tags: ['unattended-upgrades'] }
+    - { role: certbot, tags: ['certbot'] }
+    - { role: tor, tags: ['tor'] }
+    - { role: tor-mon, tags: ['tor-mon'] }
+    - { role: nginx, tags: ['nginx'] }

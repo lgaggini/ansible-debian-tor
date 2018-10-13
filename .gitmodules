@@ -1,0 +1,15 @@
+[submodule "roles/unattended-upgrades"]
+	path = roles/unattended-upgrades
+	url = https://github.com/jnv/ansible-role-unattended-upgrades.git
+[submodule "roles/tor"]
+	path = roles/tor
+	url = git@github.com:lgaggini/ansible-relayor.git
+[submodule "roles/certbot"]
+	path = roles/certbot
+	url = git@github.com:lgaggini/ansible-role-certbot.git
+[submodule "roles/nginx"]
+	path = roles/nginx
+	url = git@github.com:lgaggini/ansible-role-nginx.git
+[submodule "roles/tor-mon"]
+	path = roles/tor-mon
+	url = git@github.com:lgaggini/ansible-tor-mon.git
