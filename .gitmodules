@@ -13,3 +13,6 @@
 [submodule "roles/tor-mon"]
 	path = roles/tor-mon
 	url = git@github.com:lgaggini/ansible-tor-mon.git
+[submodule "roles/node-exporter"]
+	path = roles/node-exporter
+	url = git@github.com:cloudalchemy/ansible-node-exporter.git
