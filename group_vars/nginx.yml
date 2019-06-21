@@ -23,6 +23,8 @@ nginx_vhosts:
       location /metrics {
         proxy_pass http://127.0.0.1:9100;
         proxy_buffering on;
+        allow 136.243.37.208;
+        deny all;
       }
   - listen: 80
     server_name: nibiru.lgaggini.net
