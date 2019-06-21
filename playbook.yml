@@ -8,6 +8,7 @@
     - group_vars/certbot.yml
     - group_vars/tor.yml
     - group_vars/nginx.yml
+    - group_vars/node-exporter.yml
 
   roles:
     - { role: user, tags: ['user'] }
@@ -21,3 +22,4 @@
     - { role: tor, tags: ['tor'] }
     - { role: tor-mon, tags: ['tor-mon'] }
     - { role: nginx, tags: ['nginx'] }
+    - { role: node-exporter, tags: ['node-exporter'] }
