@@ -26,6 +26,14 @@ nginx_vhosts:
         allow 136.243.37.208;
         deny all;
       }
+
+      location /tor_metrics {
+        proxy_pass http://127.0.0.1:9099;
+        proxy_buffering on;
+        allow 136.243.37.208;
+        deny all;
+      }
+
   - listen: 80
     server_name: nibiru.lgaggini.net
     return: "301 https://$host$request_uri"
