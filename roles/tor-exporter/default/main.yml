@@ -1,0 +1,18 @@
+---
+tor_exporter_deps:
+  - python3-prometheus-client
+  - python3-decorator
+  - python3-retrying
+  - python3-stem
+
+tor_exporter_version: 0.3
+
+tor_exporter_web_listen_address: localhost
+tor_exporter_web_listen_port: 9099
+
+tor_exporter_control_mode: tcp
+tor_exporter_control_socket: /var/run/tor/control
+tor_exporter_control_address: 127.0.0.0.1
+tor_exporter_control_port: 9051
+
+tor_exporter_required_service: tor.service

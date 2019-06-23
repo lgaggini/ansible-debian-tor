@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus exporter for Tor
+Requires={{ tor_exporter_required_service }}
+
+[Service]
+EnvironmentFile=/etc/default/tor-exporter
+ExecStart=/usr/bin/prometheus-tor-exporter.py $ARGS
+User=debian-tor
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

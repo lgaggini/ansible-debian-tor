@@ -1,0 +1,5 @@
+{% if 'unix' in tor_exporter_control_mode %}
+ARGS="-b {{ tor_exporter_web_listen_address }} -p {{ tor_exporter_web_listen_port }} -m {{ tor_exporter_control_mode }} -s {{ tor_exporter_control_socket }}"
+{% else %}
+ARGS="-b {{ tor_exporter_web_listen_address }} -p {{ tor_exporter_web_listen_port }} -m {{ tor_exporter_control_mode }} -a {{ tor_exporter_control_address }} -c {{ tor_exporter_control_port }}"
+{% endif %}

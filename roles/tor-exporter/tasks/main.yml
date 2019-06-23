@@ -1,0 +1,15 @@
+---
+- name: tor-exporter | install deps
+  apt: update_cache=yes name="{{ tor_exporter_deps }}"
+
+- name: tor-exporter | install package
+  apt: deb=https://github.com/atx/prometheus-tor_exporter/releases/download/v{{ tor_exporter_version }}/prometheus-tor-exporter_{{ tor_exporter_version }}_all.deb
+
+- name: tor-exporter | configure
+  template: src=tor-exporter.j2 dest=/etc/default/prometheus-tor-exporter
+
+- name: tor-exporter | create systemd unit
+  template: src=tor-exporter.service.j2 dest=/etc/systemd/system/promehteus-tor-exporter.service
+
+- name: tor-exporter | start and enable systemd unit
+  systemd: daemon_reload=yes name=prometheus-tor-exporter.service state=stopped enabled=yes
