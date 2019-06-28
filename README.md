@@ -10,6 +10,7 @@ It's based on light forks of some great roles around, used as git submodules:
 * [geerlingguy nginx](https://github.com/geerlingguy/ansible-role-nginx)
 * [geerlingguy certbot](https://github.com/geerlingguy/ansible-role-certbot)
 * [ansible-relayor](https://github.com/nusenu/ansible-relayor)
+* [ansible-node-exporter](https://github.com/cloudalchemy/ansible-node-exporter)
 
 It configures by distinct roles:
 
@@ -24,6 +25,8 @@ It configures by distinct roles:
 * nginx to proxy theonionbox webapps
 * tor to install and configure tor
 * tor-mon to install and configure nyx and theonionbox
+* node-exporter to install prometheus node exporter
+* tor-exporter to install [prometheus atx tor exporter](https://github.com/atx/prometheus-tor_exporter)
 
 ## Install
 ### Clone
@@ -57,6 +60,8 @@ Available tags are:
 * nginx
 * tor
 * tor-mon
+* node-exporter
+* tor-exporter
 
 ## On air
 [nibiru.lgaggini.net](https://nibiru.lgaggini.net)
