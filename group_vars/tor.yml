@@ -7,7 +7,7 @@ tor_ports:
   - orport: 9000
     dirport: 0
 tor_nickname: nibiru
-tor_ContactInfo: "Lorenzo Gaggini <lg AT lgaggini dot net>"
+tor_ContactInfo: "lgaggini.net <tech AT lgaggini dot net>"
 tor_ExitRelay: False
 tor_RelayBandwidthRate_file: files/bandwidthrate.csv
 tor_RelayBandwidthBurst_file: files/bandwidthburst.csv
